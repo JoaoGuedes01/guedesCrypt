@@ -24,5 +24,8 @@
   "homepage": "https://github.com/JoaoGuedes01/guedesCrypt#readme",
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1"
   }
 }
