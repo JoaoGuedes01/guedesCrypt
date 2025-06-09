@@ -1,0 +1,5 @@
+test/
+.github/
+node_modules/
+*.log
+

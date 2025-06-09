@@ -1,20 +1,28 @@
 {
   "name": "guedes-crypt",
-  "version": "1.0.2",
-  "description": "Library for string encryption in nodejs",
-  "main": "guedesCrypt.js",
+  "version": "2.0.0",
+  "description": "Library for data encryption using Guedes Cypher",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JoaoGuedes01/guedesCrypt.git"
   },
-  "keywords": ["encryption","guedes","nodejs"],
+  "keywords": [
+    "encryption",
+    "guedes",
+    "nodejs",
+    "crypto"
+  ],
   "author": "Joao Guedes",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JoaoGuedes01/guedesCrypt/issues"
   },
-  "homepage": "https://github.com/JoaoGuedes01/guedesCrypt#readme"
+  "homepage": "https://github.com/JoaoGuedes01/guedesCrypt#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
