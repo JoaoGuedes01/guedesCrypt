@@ -1,111 +1,82 @@
 
-# guedesCrypt
+# 🛡️ guedes-crypto
 
-## Library for string encryption in nodejs
+> 🔐 AES-256 encryption based on Guedes Cypher
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+**guedes-crypto** is a Node.js library that encrypts and decrypts data using AES-256-CBC, encoding the result using a fixed vocabulary of "Guedes" words instead of typical base64 or hex.
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+Ideal for obfultscation, novey, or just showing off your love for all things Guedes.
 
-guedesCrypt is a lightweight library for encryping strings in nodejs
+---
 
-##  Features
+## ✨ Features
 
-- Encrypt your strings with a secret salt defined by you(Do not share this salt as it is the key to decrypt the string)
+- 🔐 AES-256-CBC encryption
+- 🎭 Custom “Guedes vocabulary” ciphertext encoding
+- 🔁 Functional API with customizable configuration
+- ⚙️ Customizable encryption parameters
+- 📦 Lightweight and dependency-free (except for `crypto`)
 
-- Decrypt your encrypted strings with the same salt. (Using a different salt from the encryption one will result in erronous strings)
+---
 
-##  Installation
+## 📦 Installation
 
-guedesCrypt requires [Node.js](https://nodejs.org/) v10+ to run.
+```bash
+npm install guedes-crypto
+```
+## 🧪 Usage
+```js
+import { encrypt, decrypt, generatePassword} from 'guedes-crypt';
 
-Install the dependencies and devDependencies and start the server.
+// Basic usage
+const password = generatePassword();
+const secret = 'Top secret message';
 
-```sh
+const encrypted = encrypt(secret, password);
+console.log(encrypted); // guedes words...
 
-cd [yourproject]
-
-npm i guedes-crypt
+const decrypted = decrypt(encrypted, password);
+console.log(decrypted); // "Top secret message"
 
 ```
-##  Usage
-To encrypt a String you need a secret salt to use in the guedesEncrypt function
+## 🧠 Advanced Configuration
+```js
+import { encrypt, decrypt, createCrypto} from 'guedes-crypt';
+const customCrypto = createCrypto({
+  algorithm: 'aes-256-cbc',
+  saltLength: 16,
+  ivLength: 16,
+  iterations: 100000,
+  keyLength: 32,
+  guedesWords: [
+    "guedes", "Guedes", "GUEDES", "gUeDeS",
+    "guedes!", "guedes?", "guedes.", "guedes!!",
+    "guedes_is_the_best", "guedes_great_guy", "guedes_ganda_gajo", "guedes_best_man",
+    "guedes_very_good", "very_nice_guedes", "guedes_tuga_molly", "guedes_molly_tuga"
+  ]
+});
 
-```sh
-
-let string = "This is the string I want to encrypt"
-let salt = "THIS IS MY SECRET SALT"
-
-let encryptedString = guedesEncrypt(salt,string);
-// This will result in '407c7d67347d6734607c71346760667d7a73345d3463757a6034607b34717a77666d6460'
-
+const encrypted = customCrypto.encrypt('Hello world', 'custom_password');
+const decrypted = customCrypto.decrypt(encrypted, 'custom_password');
 ```
-
-To decrypt a String you need the same secret salt used in its encryption as well as the encrypted string
-
-```sh
-
-let decryptedString= guedesDecrypt(salt,encryptedString );
-// This will result in 'This is the string I want to encrypt'
-
+## 🧪 Testing
+```bash
+npm run test
 ```
+## 🧰 API Reference
+**encrypt(plaintext, password)**
+Encrypts the string using the default configuration and returns Guedes-encoded ciphertext.
 
-##  License
+**decrypt(ciphertext, password)**
+Decrypts Guedes-encoded ciphertext using the same password.
 
-MIT
+**generatePassword()**
+Generates a random, strong password prefixed with guedes_.
 
-**Fuck you Rui**
+**createCrypto(config)**
+Returns a new encrypt, decrypt, and generatePassword function with custom configuration.
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-[dill]: <https://github.com/joemccann/dillinger>
-
-[git-repo-url]: <https://github.com/joemccann/dillinger.git>
-
-[john gruber]: <http://daringfireball.net>
-
-[df1]: <http://daringfireball.net/projects/markdown/>
-
-[markdown-it]: <https://github.com/markdown-it/markdown-it>
-
-[Ace Editor]: <http://ace.ajax.org>
-
-[node.js]: <http://nodejs.org>
-
-[Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-
-[jQuery]: <http://jquery.com>
-
-[@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-
-[express]: <http://expressjs.com>
-
-[AngularJS]: <http://angularjs.org>
-
-[Gulp]: <http://gulpjs.com>
-
-[PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-
-[PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-
-[PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-
-[PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-
-[PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-
-[PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
-
--   [](https://github.com/ "GitHub")© 2021 GitHub, Inc.
-
--   [Terms](https://docs.github.com/en/github/site-policy/github-terms-of-service)
--   [Privacy](https://docs.github.com/en/github/site-policy/github-privacy-statement)
--   [Security](https://github.com/security)
--   [Status](https://www.githubstatus.com/)
--   [Docs](https://docs.github.com/)
--   [Contact GitHub](https://support.github.com/?tags=dotcom-footer)
--   [Pricing](https://github.com/pricing)
--   [API](https://docs.github.com/)
--   [Training](https://services.github.com/)
--   [Blog](https://github.blog/)
--   [About](https://github.com/about)
+## 📜 License
+MIT © You can do whatever the fuck xD
+## 💡 Why?
+Why not?
