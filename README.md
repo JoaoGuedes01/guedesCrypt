@@ -18,7 +18,7 @@ Ideal for obfultscation, novey, or just showing off your love for all things Gue
 - 🎭 Custom “Guedes vocabulary” ciphertext encoding
 - 🔁 Functional API with customizable configuration
 - ⚙️ Customizable encryption parameters
-- 📦 Lightweight and dependency-free (except for `crypto`)
+- 📦 Lightweight and dependency-free
 
 ---
 
