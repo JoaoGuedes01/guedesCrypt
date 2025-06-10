@@ -1,6 +1,6 @@
 {
   "name": "guedes-crypt",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "description": "Library for data encryption using Guedes Cypher",
   "main": "src/index.js",
   "scripts": {
@@ -24,8 +24,5 @@
   "homepage": "https://github.com/JoaoGuedes01/guedesCrypt#readme",
   "devDependencies": {
     "jest": "^29.7.0"
-  },
-  "dependencies": {
-    "crypto": "^1.0.1"
   }
 }
