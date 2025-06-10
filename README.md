@@ -1,4 +1,6 @@
-
+<p align="center">
+  <img src="logo.svg" alt="Guedes Crypto Logo" />
+</p>
 # 🛡️ guedes-crypto
 
 > 🔐 AES-256 encryption based on Guedes Cypher
